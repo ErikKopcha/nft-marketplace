@@ -1,4 +1,4 @@
-import { COLORS, SIZES } from '../../constants';
+import { COLORS, SIZES } from '@app/constants';
 
 export const homeHeaderStyles = {
   container: {

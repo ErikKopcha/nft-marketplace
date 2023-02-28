@@ -1,6 +1,5 @@
 import React from 'react';
 import { Image, View } from 'react-native';
-import { INFTCard } from './types';
 import { useNavigation } from '@react-navigation/native';
 import { NFTCardStyles } from './styles';
 import {
@@ -10,7 +9,23 @@ import {
   RectButton,
   SubInfo,
 } from '../index';
-import { assets, SIZES } from '../../constants';
+import { assets, SIZES } from '@app/constants';
+
+export interface INFTCard {
+  id: string;
+  name: string;
+  creator: string;
+  price: number;
+  description: string;
+  image: any;
+  bids: Array<{
+    id: string;
+    name: string;
+    price: number;
+    image: any;
+    date: string;
+  }>;
+}
 
 const NFTCard = (props: INFTCard): React.ReactElement => {
   const navigation = useNavigation();
@@ -47,7 +62,7 @@ const NFTCard = (props: INFTCard): React.ReactElement => {
           <EthPrice price={price} />
           <RectButton
             minWidth={120}
-            fonrSize={SIZES.font}
+            fontSize={SIZES.font}
             handlePress={() =>
               navigation.navigate('Details' as never, { data: props } as never)
             }

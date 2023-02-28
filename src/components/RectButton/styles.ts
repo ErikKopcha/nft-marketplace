@@ -1,4 +1,4 @@
-import { COLORS, FONTS, SIZES } from '../../constants';
+import { COLORS, SIZES } from '@app/constants';
 
 export const rectButtonStyles = {
   touchableOpacity: {
@@ -7,7 +7,7 @@ export const rectButtonStyles = {
     padding: SIZES.small,
   },
   text: {
-    fontFamily: FONTS.semiBold,
+    // fontFamily: FONTS.semiBold,
     color: COLORS.white,
     textAlign: 'center',
   },

@@ -1,4 +1,4 @@
-import { COLORS } from '../../constants';
+import { COLORS } from '@app/constants';
 
 export const homeStyles = {
   safeAreaView: {

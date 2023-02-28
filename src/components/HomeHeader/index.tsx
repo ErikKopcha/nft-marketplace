@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, Text, TextInput, View } from 'react-native';
 import { homeHeaderStyles } from './styles';
-import { assets, SIZES } from '../../constants';
+import { assets, SIZES } from '@app/constants';
 
 const HomeHeader = ({
   onSearch,

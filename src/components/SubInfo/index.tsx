@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, Text, View } from 'react-native';
 import { subInfoStyles } from './styles';
-import { assets, SIZES } from '../../constants';
+import { assets, SIZES } from '@app/constants';
 
 export const NFTTitle = ({
   title,
@@ -71,7 +71,7 @@ export const People = (): React.ReactElement => {
     <View style={subInfoStyles.people}>
       {[assets.person02, assets.person03, assets.person04].map(
         (imgUrl, index) => (
-          <ImageCmp index={index} imgUrl={imgUrl} />
+          <ImageCmp key={index} index={index} imgUrl={imgUrl} />
         ),
       )}
     </View>

@@ -3,7 +3,7 @@ import { StatusBar } from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
 
 interface IFocusStatusBar {
-  background: string;
+  backgroundColor: string;
 }
 
 const FocusStatusBar = (props: IFocusStatusBar): React.ReactElement | null => {

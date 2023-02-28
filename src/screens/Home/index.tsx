@@ -1,13 +1,13 @@
 import React from 'react';
 import { FlatList, SafeAreaView, View } from 'react-native';
-import { FocusStatusBar, HomeHeader, NFTCard } from '../../components';
-import { COLORS, NFTData } from '../../constants';
+import { COLORS, NFTData } from '@app/constants';
 import { homeStyles } from './styles';
+import { FocusStatusBar, HomeHeader, NFTCard } from '@app/components';
 
 const Home = (): React.ReactElement => {
   return (
     <SafeAreaView style={homeStyles.safeAreaView}>
-      <FocusStatusBar background={COLORS.primary} />
+      <FocusStatusBar backgroundColor={COLORS.primary} />
       <View style={homeStyles.viewContainer}>
         <View style={homeStyles.flatListContainer}>
           <FlatList

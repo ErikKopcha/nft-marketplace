@@ -5,8 +5,10 @@ import { circleButtonStyles } from './styles';
 interface ICircleButton {
   imgUrl: any;
   handlePress: () => void;
-  top: number;
-  right: number;
+  top?: number;
+  right?: number;
+  left?: number;
+  bottom?: number;
 }
 
 const CircleButton = ({
