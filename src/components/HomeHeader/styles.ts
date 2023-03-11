@@ -1,6 +1,6 @@
 import { COLORS, SIZES } from '@app/constants';
 
-export const homeHeaderStyles = {
+export const styles = {
   container: {
     backgroundColor: COLORS.primary,
     padding: SIZES.font,

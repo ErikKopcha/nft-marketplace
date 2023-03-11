@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, Text, View } from 'react-native';
-import { subInfoStyles } from './styles';
+import { styles } from './styles';
 import { assets, SIZES } from '@app/constants';
 
 export const NFTTitle = ({
@@ -18,14 +18,14 @@ export const NFTTitle = ({
     <View>
       <Text
         style={{
-          ...subInfoStyles.title,
+          ...styles.title,
           fontSize: titleSize,
         }}>
         {title}
       </Text>
       <Text
         style={{
-          ...subInfoStyles.subTitle,
+          ...styles.subTitle,
           fontSize: subtitleSize,
         }}>
         {subtitle}
@@ -36,13 +36,9 @@ export const NFTTitle = ({
 
 export const EthPrice = ({ price }: { price: number }): React.ReactElement => {
   return (
-    <View style={subInfoStyles.ethPriceContainer}>
-      <Image
-        source={assets.eth}
-        resizeMode="contain"
-        style={subInfoStyles.ethImage}
-      />
-      <Text style={subInfoStyles.price}>{price}</Text>
+    <View style={styles.ethPriceContainer}>
+      <Image source={assets.eth} resizeMode="contain" style={styles.ethImage} />
+      <Text style={styles.price}>{price.toFixed(2)}</Text>
     </View>
   );
 };
@@ -58,8 +54,9 @@ export const ImageCmp = ({
     <Image
       source={imgUrl}
       resizeMode="contain"
+      // eslint-disable-next-line react-native/no-inline-styles
       style={{
-        ...subInfoStyles.image,
+        ...styles.image,
         marginLeft: index === 0 ? 0 : -SIZES.font,
       }}
     />
@@ -68,7 +65,7 @@ export const ImageCmp = ({
 
 export const People = (): React.ReactElement => {
   return (
-    <View style={subInfoStyles.people}>
+    <View style={styles.people}>
       {[assets.person02, assets.person03, assets.person04].map(
         (imgUrl, index) => (
           <ImageCmp key={index} index={index} imgUrl={imgUrl} />
@@ -80,16 +77,16 @@ export const People = (): React.ReactElement => {
 
 export const EndDate = (): React.ReactElement => {
   return (
-    <View style={subInfoStyles.endDate}>
-      <Text style={subInfoStyles.endDateEnding}>Ending in</Text>
-      <Text style={subInfoStyles.endDateEndingInfo}>12h 30m</Text>
+    <View style={styles.endDate}>
+      <Text style={styles.endDateEnding}>Ending in</Text>
+      <Text style={styles.endDateEndingInfo}>12h 30m</Text>
     </View>
   );
 };
 
 export const SubInfo = (): React.ReactElement => {
   return (
-    <View style={subInfoStyles.subInfo}>
+    <View style={styles.subInfo}>
       <People />
       <EndDate />
     </View>

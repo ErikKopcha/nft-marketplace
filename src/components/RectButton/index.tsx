@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
-import { rectButtonStyles } from './styles';
+import { styles } from './styles';
 
 interface IRectButton {
   minWidth: number;
@@ -16,14 +16,14 @@ const RectButton = ({
   return (
     <TouchableOpacity
       style={{
-        ...rectButtonStyles.touchableOpacity,
+        ...styles.touchableOpacity,
         minWidth,
         ...props,
       }}
       onPress={handlePress}>
       <Text
         style={{
-          ...rectButtonStyles.text,
+          ...styles.text,
           fontSize,
         }}>
         Place a bid

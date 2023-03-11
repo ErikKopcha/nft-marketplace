@@ -1,6 +1,6 @@
 import { COLORS, SHADOWS, SIZES } from '@app/constants';
 
-export const subInfoStyles = {
+export const styles = {
   subInfo: {
     width: '100%',
     paddingHorizontal: SIZES.font,

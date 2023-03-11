@@ -1,6 +1,6 @@
 import { COLORS, SHADOWS, SIZES } from '@app/constants';
 
-export const NFTCardStyles = {
+export const styles = {
   NFTCardContainer: {
     backgroundColor: COLORS.white,
     borderRadius: SIZES.font,

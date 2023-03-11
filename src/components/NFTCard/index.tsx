@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { NFTCardStyles } from './styles';
+import { styles } from './styles';
 import {
   CircleButton,
   EthPrice,
@@ -10,22 +10,7 @@ import {
   SubInfo,
 } from '../index';
 import { assets, SIZES } from '@app/constants';
-
-export interface INFTCard {
-  id: string;
-  name: string;
-  creator: string;
-  price: number;
-  description: string;
-  image: any;
-  bids: Array<{
-    id: string;
-    name: string;
-    price: number;
-    image: any;
-    date: string;
-  }>;
-}
+import { INFTCard } from '@app/types';
 
 const NFTCard = (props: INFTCard): React.ReactElement => {
   const navigation = useNavigation();
@@ -33,13 +18,9 @@ const NFTCard = (props: INFTCard): React.ReactElement => {
   const { image, name, creator, price } = props;
 
   return (
-    <View style={NFTCardStyles.NFTCardContainer}>
-      <View style={NFTCardStyles.NFTCardBox}>
-        <Image
-          source={image}
-          resizeMode="cover"
-          style={NFTCardStyles.imageStyles}
-        />
+    <View style={styles.NFTCardContainer}>
+      <View style={styles.NFTCardBox}>
+        <Image source={image} resizeMode="cover" style={styles.imageStyles} />
         <CircleButton
           imgUrl={assets.heart}
           right={10}
@@ -50,7 +31,7 @@ const NFTCard = (props: INFTCard): React.ReactElement => {
 
       <SubInfo />
 
-      <View style={NFTCardStyles.titleContainer}>
+      <View style={styles.titleContainer}>
         <NFTTitle
           title={name}
           subtitle={creator}
@@ -58,7 +39,7 @@ const NFTCard = (props: INFTCard): React.ReactElement => {
           subtitleSize={SIZES.small}
         />
 
-        <View style={NFTCardStyles.priceBox}>
+        <View style={styles.priceBox}>
           <EthPrice price={price} />
           <RectButton
             minWidth={120}

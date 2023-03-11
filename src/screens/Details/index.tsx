@@ -1,14 +1,16 @@
 import React from 'react';
-import { FlatList, SafeAreaView, View } from 'react-native';
+import { FlatList, SafeAreaView, Text, View } from 'react-native';
 import {
   DetailsBid,
+  DetailsDescription,
   DetailsHeader,
   FocusStatusBar,
   RectButton,
+  SubInfo,
 } from '@app/components';
 import { SHADOWS, SIZES } from '@app/constants';
-import { detailsStyles } from './styles';
-import { INFTCard } from '@app/components/NFTCard';
+import { styles } from './styles';
+import { INFTCard } from '@app/types';
 
 interface IDetails {
   route: {
@@ -26,19 +28,27 @@ const Details = ({ route, navigation }: IDetails | any): React.ReactElement => {
     return (
       <React.Fragment>
         <DetailsHeader data={data} navigation={navigation} />
+        <SubInfo />
+        <View style={styles.detailsDescContainer}>
+          <DetailsDescription data={data} />
+
+          {data.bids.length > 0 && (
+            <Text style={styles.bidText}>Current Bids</Text>
+          )}
+        </View>
       </React.Fragment>
     );
   }, [data, navigation]);
 
   return (
-    <SafeAreaView style={detailsStyles.container}>
+    <SafeAreaView style={styles.container}>
       <FocusStatusBar
         barStyle="dark-content"
         backgroundColor="transparent"
         transLucent={true}
       />
 
-      <View style={detailsStyles.placeABidButton}>
+      <View style={styles.placeABidButton}>
         <RectButton
           handlePress={() => {}}
           minWidth={170}

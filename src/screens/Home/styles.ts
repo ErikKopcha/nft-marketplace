@@ -1,6 +1,6 @@
 import { COLORS } from '@app/constants';
 
-export const homeStyles = {
+export const styles = {
   safeAreaView: {
     flex: 1,
   },
@@ -20,7 +20,8 @@ export const homeStyles = {
     zIndex: -1,
   },
   backgroundItemOne: {
-    height: 300,
+    // height: 300,
+    height: '100%',
     backgroundColor: COLORS.primary,
   },
   backgroundItemTwo: {

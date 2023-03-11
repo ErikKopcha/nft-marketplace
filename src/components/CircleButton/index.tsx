@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, TouchableOpacity } from 'react-native';
-import { circleButtonStyles } from './styles';
+import { styles } from './styles';
 
 interface ICircleButton {
   imgUrl: any;
@@ -19,13 +19,14 @@ const CircleButton = ({
   return (
     <TouchableOpacity
       style={{
-        ...circleButtonStyles.touchableOpacity,
+        ...styles.touchableOpacity,
         ...props,
       }}
       onPress={handlePress}>
       <Image
         source={imgUrl}
         resizeMode="cover"
+        // eslint-disable-next-line react-native/no-inline-styles
         style={{ width: 24, height: 24 }}
       />
     </TouchableOpacity>

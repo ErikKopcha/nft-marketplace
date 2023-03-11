@@ -1,15 +1,15 @@
 import React from 'react';
 import { FlatList, SafeAreaView, View } from 'react-native';
 import { COLORS, NFTData } from '@app/constants';
-import { homeStyles } from './styles';
+import { styles } from './styles';
 import { FocusStatusBar, HomeHeader, NFTCard } from '@app/components';
 
 const Home = (): React.ReactElement => {
   return (
-    <SafeAreaView style={homeStyles.safeAreaView}>
+    <SafeAreaView style={styles.safeAreaView}>
       <FocusStatusBar backgroundColor={COLORS.primary} />
-      <View style={homeStyles.viewContainer}>
-        <View style={homeStyles.flatListContainer}>
+      <View style={styles.viewContainer}>
+        <View style={styles.flatListContainer}>
           <FlatList
             data={NFTData}
             keyExtractor={item => item.id}
@@ -24,9 +24,9 @@ const Home = (): React.ReactElement => {
             renderItem={({ item }) => <NFTCard {...item} />}
           />
         </View>
-        <View style={homeStyles.backgroundBox}>
-          <View style={homeStyles.backgroundItemOne} />
-          <View style={homeStyles.backgroundItemTwo} />
+        <View style={styles.backgroundBox}>
+          <View style={styles.backgroundItemOne} />
+          <View style={styles.backgroundItemTwo} />
         </View>
       </View>
     </SafeAreaView>

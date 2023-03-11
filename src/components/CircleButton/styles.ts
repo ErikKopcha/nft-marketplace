@@ -1,6 +1,6 @@
 import { COLORS, SHADOWS, SIZES } from '@app/constants';
 
-export const circleButtonStyles = {
+export const styles = {
   touchableOpacity: {
     position: 'absolute',
     alignItems: 'center',

@@ -1,6 +1,6 @@
 import { COLORS, SIZES } from '@app/constants';
 
-export const rectButtonStyles = {
+export const styles = {
   touchableOpacity: {
     backgroundColor: COLORS.primary,
     borderRadius: SIZES.extraLarge,
