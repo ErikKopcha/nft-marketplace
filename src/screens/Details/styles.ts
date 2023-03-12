@@ -3,6 +3,7 @@ import { SIZES, COLORS } from '@app/constants';
 export const styles = {
   container: {
     flex: 1,
+    backgroundColor: COLORS.white,
   },
   placeABidButton: {
     width: '100%',

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Image, Text, View } from 'react-native';
 import { styles } from './styles';
 import { assets, SIZES } from '@app/constants';
+import { getRandomNumberFromRange, reduceNumberToTwoValues } from '@app/utils';
 
 export const NFTTitle = ({
   title,
@@ -76,10 +77,49 @@ export const People = (): React.ReactElement => {
 };
 
 export const EndDate = (): React.ReactElement => {
+  const [dateInfo, setDateInfo] = useState({
+    h: '00',
+    m: '00',
+    s: '00',
+  });
+
+  const hour = 3_600_000;
+  const currentDateTime: number = useMemo(() => new Date().getTime(), []);
+
+  const deadline: number = useMemo(() => {
+    return (
+      currentDateTime +
+      getRandomNumberFromRange(hour, hour * getRandomNumberFromRange(2, 12))
+    );
+  }, [currentDateTime]);
+
+  const getTime = useCallback(() => {
+    const time = deadline - Date.now();
+
+    const h = reduceNumberToTwoValues(
+      Math.floor((time / (1000 * 60 * 60)) % 24),
+    );
+    const m = reduceNumberToTwoValues(Math.floor((time / 1000 / 60) % 60));
+    const s = reduceNumberToTwoValues(Math.floor((time / 1000) % 60));
+
+    setDateInfo({
+      h,
+      m,
+      s,
+    });
+  }, [deadline]);
+
+  useEffect(() => {
+    const interval = setInterval(() => getTime(), 1000);
+    return () => clearInterval(interval);
+  }, [getTime]);
+
   return (
     <View style={styles.endDate}>
       <Text style={styles.endDateEnding}>Ending in</Text>
-      <Text style={styles.endDateEndingInfo}>12h 30m</Text>
+      <Text style={styles.endDateEndingInfo}>
+        {dateInfo.h}h {dateInfo.m}m {dateInfo.s}s
+      </Text>
     </View>
   );
 };

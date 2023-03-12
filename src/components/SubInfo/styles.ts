@@ -24,6 +24,7 @@ export const styles = {
     ...SHADOWS.light,
     elevation: 1,
     maxWidth: '50%',
+    width: 130,
   },
   endDateEnding: {
     // fontFamily: FONTS.regular,
